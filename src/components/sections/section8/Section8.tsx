@@ -24,7 +24,7 @@ const Section8 = () => {
         </div>
         <div className='max-md:flex max-md:flex-col items-center'>
             <h3 className='text-[#FFA800] text-[7rem] max-md:text-[3rem] font-cheeseBurga font-bold md:pl-20 pt-32 tracking-wider'>SOCIAL MEDIA <br />LINKS</h3>
-            <div className='flex max-md:flex-col  gap-3 w-full justify-center items-center md:mt-44 max-md:mt-10'>
+            <div className='flex max-xl:flex-col  gap-3 w-full justify-center items-center md:mt-44 max-md:mt-10'>
                 <Image src={frame} alt='frame' className=' w-[450px] h-[400px] max-md:w-[250px] max-md:h-[200px]' />
                 <Image src={frame2} alt='frame' className=' w-[600px] h-[600px] max-md:w-[300px] max-md:h-[300px] mimage' />
             </div>
