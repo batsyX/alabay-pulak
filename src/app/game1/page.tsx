@@ -7,8 +7,8 @@ import img3 from "@/assets/Alabay Assets/Alabay Games/Abilities 2.png"
 import img4 from "@/assets/Alabay Assets/Alabay Games/Alabay Adventure - The Lost Heritage/locations preview.png"
 import img5 from "@/assets/Alabay Assets/Alabay Games/Alabay Adventure - The Lost Heritage/overview.png"
 
-import { AnimatePresence, motion ,useScroll, useSpring} from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import {  motion ,useScroll, useSpring} from 'framer-motion';
+import {  useRef } from 'react';
 import "./page1.css"
 import playBtn from "/public/images/play-button.png"
 import { useRouter } from 'next/navigation'
