@@ -20,16 +20,7 @@ const data=[
 
 const GameSlider = () => {
     const router = useRouter()
-    const [windowWidth, setWindowWidth] = React.useState(
-    typeof window !== 'undefined' ? window.innerWidth : 0
-  );
-
-  useEffect(()=>{
-
-    window.addEventListener('resize',()=>{
-        setWindowWidth(window.innerWidth)
-    })
-  },[])
+    
     
   return (
     <div >
@@ -50,7 +41,7 @@ const GameSlider = () => {
         >
         {
           data.map((item,index)=>(
-            <SwiperSlide key={index}  style={{border:'10px solid white',height:windowWidth<720? '300px':'650px',overflow:'hidden'}}>
+            <SwiperSlide key={index} className='h-[600px] max-md:h-[300px]' style={{border:'10px solid white',overflow:'hidden'}}>
               
                 <Image src={item.img} alt='section2-img' className='w-full h-full rounded-xl' objectFit='cover'/> 
                 <button className={`${index==0 ?'bg-[#843AFC]':'bg-[#45D689]'} px-12 py-4 rounded-xl absolute bottom-20 max-md:bottom-2 box-btn hover:scale-105 flex justify-center items-center gap-2`}
