@@ -44,7 +44,7 @@ const GameSlider = () => {
             <SwiperSlide key={index} className='h-[600px] max-md:h-[300px]' style={{border:'10px solid white',overflow:'hidden'}}>
               
                 <Image src={item.img} alt='section2-img' className='w-full h-full rounded-xl' objectFit='cover'/> 
-                <button className={`${index==0 ?'bg-[#843AFC]':'bg-[#45D689]'} px-12 py-4 rounded-xl absolute bottom-20 max-md:bottom-2 box-btn hover:scale-105 flex justify-center items-center gap-2`}
+                <button className={`${index==0 ?'bg-[#843AFC]':'bg-[#45D689]'} px-12 py-4 max-sm:px-6 max-sm:py-2 rounded-xl absolute bottom-20 max-md:bottom-2 box-btn hover:scale-105 flex justify-center items-center gap-2`}
                 onClick={()=>{
                     if(index==0){
                         router.push('/game1')
