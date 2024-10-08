@@ -31,15 +31,16 @@ const data=[
 const Section2 = () => {
   const [slidesPerView,setSlidesPerView]=React.useState(3);
   const [currenChoice,setCurrentChoice]=React.useState('all')
-  const [windowWidth,setWindowWidth]=React.useState(window.innerWidth)
+  const [windowWidth, setWindowWidth] = React.useState(
+    typeof window !== 'undefined' ? window.innerWidth : 0
+  );
 
   useEffect(()=>{
-    if (typeof window !== 'undefined') {
-        window.addEventListener('resize',()=>{
+
+    window.addEventListener('resize',()=>{
         setWindowWidth(window.innerWidth)
     })
   },[])
-    }
     
   
   useEffect(()=>{
