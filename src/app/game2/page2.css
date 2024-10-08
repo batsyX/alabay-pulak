@@ -1,0 +1,44 @@
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('../../assets/Alabay Assets/Alabay Games/Alabay heritage prev gradient.png') no-repeat center center;
+    background-size: cover;
+    z-index: -1; /* Place the background behind the content */
+}
+
+.container {
+    position: relative;
+    z-index: 1; /* Ensure the scrollable content is above the background */
+}
+.boxes{ 
+    scroll-snap-align: center;
+}
+::-webkit-scrollbar {
+    width: 0;
+  }
+.progress{
+
+    position: sticky;
+    width: 100%;
+    top: 10%;
+    left: 0;
+    display: flex;
+    justify-content: end;
+    padding-right: 20px;
+}
+.progBar{
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+    box-shadow: none;
+    border: none;
+    border-radius: 30px;
+        width: 25px;
+        height: 500px;
+        background-color: #90FFAE;
+        z-index: 1;
+}

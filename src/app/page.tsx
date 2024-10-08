@@ -1,101 +1,99 @@
+'use client';
 import Image from "next/image";
+import home_background from "../assets/Alabay Assets/DALL·E 2024-07-29 22.54.08 - A wide 3D cartoon illustration of furry Central Asian Shepherd dogs playing together in a grassy field. The dogs are depicted with fluffy fur, playful 1.png";
+import ScrollComponents from "@/components/ScrollComponents";
+import { useEffect, useState } from "react";
+import { useRef } from "react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [isOpen, setIsOpen] = useState(false);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+
+      // Open the box as soon as the user starts scrolling down
+      if (scrollTop > 0) {
+        setIsOpen(true);
+      } else {
+        const innerElement = scrollRef.current;
+        if (innerElement) {
+          innerElement.scrollTo({ top: 0, behavior: 'smooth' })
+        }
+        setIsOpen(false); // Close the box when at the top
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  useEffect(() => {
+    const handleInnerScroll = () => {
+      if (scrollRef.current) {
+        const scrollTop = scrollRef.current.scrollTop;
+
+        // Close the box if the inner scroll reaches the top
+        if (scrollTop === 0) {
+          setIsOpen(false);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }
+    };
+
+    const innerElement = scrollRef.current;
+    if (innerElement) {
+      innerElement.addEventListener('scroll', handleInnerScroll);
+    }
+
+    return () => {
+      if (innerElement) {
+        innerElement.removeEventListener('scroll', handleInnerScroll);
+      }
+    };
+  }, [isOpen]);
+
+  return (
+    <>
+      
+      <div className="fixed top-0 bottom-0 right-0 left-0 -z-10">
+        <Image className="min-h-screen" src={home_background} alt="home background" layout="fill" objectFit="cover" />
+      </div>
+      <div className="fixed top-0 left-0 right-0 z-10 bg-transparent"> 
+        
+        <div className="flex justify-center pt-10 px-10">
+          <h1 className="relative font-cheeseBurga max-lg:text-[3rem] text-[6rem] bg-clip-text text-transparent bg-text-gradient text-stroke-2 max-lg:text-stroke ">
+            WELCOME TO ALABAY WORLD
+          </h1>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        
+        <div className="bg-[#181C27] w-full flex justify-center py-5 mt-44 max-sm:bg-opacity-60 max-sm:mt-20">
+          <h2 className="font-cheeseBurga max-lg:text-[2rem] text-[41px] text-white text-center px-2">
+            Where the <span className="text-yellow-300">legendary Central Asian Shepherd Dog</span> meets a new-age adventure.
+            <br />
+            <span className="text-yellow-300">Join us</span> in celebrating the <span className="text-yellow-300">strength, loyalty,</span> and <span className="text-yellow-300">heritage</span> of the Alabay breed.
+          </h2>
+        </div>
+      </div>
+      
+      <div className="pt-[200px]">
+        <div style={{ height: '1000px' }}>
+        </div>
+      </div>
+
+      
+      <div className={`fixed bottom-0 left-0 right-0 flex  justify-center transition-all duration-300 z-20 ${isOpen ? 'h-[95vh]' : 'h-16'} overflow-hidden `}>
+        <div className=" h-full w-11/12  rounded-t-3xl overflow-hidden">
+          <div ref={scrollRef} className=" h-full w-full scrollbar overflow-y-scroll rounded-t-3xl">
+            <ScrollComponents  />
+          </div>
+        </div>
+      </div>
+      
+    </>
   );
 }
