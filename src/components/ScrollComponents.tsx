@@ -14,7 +14,7 @@ const ScrollComponents: React.FC = () => {
   
 
   return (
-    <div className='bg-white w-full h-[10000px] rounded-t-3xl flex flex-col items-center relative'>
+    <div className='bg-white w-full min-h-[10000px] rounded-t-3xl flex flex-col items-center relative'>
       <div className='absolute top-5 rounded-xl bg-[#FFF6A1] h-6 w-20 z-20'></div>
 
       <div className='w-full flex max-lg:flex-col  h-[900px] bg-gradient-to-br from-[#FFF280] to-[#FFA800] relative '>
