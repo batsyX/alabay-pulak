@@ -6,7 +6,6 @@ import img2 from "@/assets/Alabay Assets/DALL·E 2024-07-15 01.28.43 - A full bo
 import img3 from "@/assets/Alabay Assets/DALL·E 2024-07-15 01.31.03 - A full-body 3D cute cartoon illustration of a very happy furry Central Asian Shepherd dog dressed in a t-shirt with an Alabay dog printed on it and we 2.png"
 import img4 from "@/assets/Alabay Assets/DALL·E 2024-07-15 01.32.53 - A full-body 3D cute cartoon illustration of a very happy furry Central Asian Shepherd dog celebrating with a trophy. The dog should have a big smile a 1.png"
 import img5 from "@/assets/Alabay Assets/DALL·E 2024-07-15 01.33.29 - A full-body 3D cute cartoon illustration of a very happy furry Central Asian Shepherd dog dressed in a Viking outfit. The dog should have a big smile_ 1.png"
-import img6 from "@/assets/Alabay Assets/DALL·E 2024-07-23 00.50.44 - A 3D cartoon illustration of a furry Central Asian Shepherd Alabay dog with big eyes, wearing a cap with a dollar logo on its head and counting money_ 1.png"
 import Cards from '../../Cards'
 
 const data=[

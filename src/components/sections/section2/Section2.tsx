@@ -31,14 +31,22 @@ const data=[
 const Section2 = () => {
   const [slidesPerView,setSlidesPerView]=React.useState(3);
   const [currenChoice,setCurrentChoice]=React.useState('all')
+  const [windowWidth,setWindowWidth]=React.useState(window.innerWidth)
+
+  useEffect(()=>{
+
+    window.addEventListener('resize',()=>{
+        setWindowWidth(window.innerWidth)
+    })
+  },[])
   
   useEffect(()=>{
-    if(window.innerWidth<768){
+    if(windowWidth<768){
         setSlidesPerView(1)
     }else{
         setSlidesPerView(3)
     }
-  },[window.innerWidth])
+  },[windowWidth])
 
   const handleClick=(e:React.MouseEvent<HTMLHeadingElement>)=>{
     const target=e.target as HTMLHeadingElement;

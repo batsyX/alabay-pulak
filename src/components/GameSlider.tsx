@@ -45,7 +45,11 @@ const GameSlider = () => {
                 <Image src={item.img} alt='section2-img' className='w-full h-full rounded-xl' objectFit='cover'/> 
                 <button className={`${index==0 ?'bg-[#843AFC]':'bg-[#45D689]'} px-12 py-4 rounded-xl absolute bottom-20 max-md:bottom-2 box-btn hover:scale-105 flex justify-center items-center gap-2`}
                 onClick={()=>{
-                    index==0 ? router.push('/game1') : router.push('/game2')
+                    if(index==0){
+                        router.push('/game1')
+                    }else{
+                        router.push('/game2')
+                    }
                 }}
                 >
                     <p className='text-white font-extrabold '>DISCOVER                
