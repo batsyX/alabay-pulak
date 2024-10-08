@@ -34,11 +34,13 @@ const Section2 = () => {
   const [windowWidth,setWindowWidth]=React.useState(window.innerWidth)
 
   useEffect(()=>{
-
-    window.addEventListener('resize',()=>{
+    if (typeof window !== 'undefined') {
+        window.addEventListener('resize',()=>{
         setWindowWidth(window.innerWidth)
     })
   },[])
+    }
+    
   
   useEffect(()=>{
     if(windowWidth<768){
